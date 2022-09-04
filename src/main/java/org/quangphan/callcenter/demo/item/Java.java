@@ -3,8 +3,7 @@ package org.quangphan.callcenter.demo.item;
 public class Java extends Item {
 
     public Java(String name) {
-        super(name);
-        getMetadata().setType(ItemType.JAVA);
+        super(name, ItemType.JAVA);
     }
 
     @Override

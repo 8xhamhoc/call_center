@@ -11,15 +11,18 @@ public class Demo {
         working.add(verypay);
 
         working.add(test);
-        working.add(test2);
+//        working.add(test2);
 
-        working.listChildren();
+//        working.listChildren();
 
         verypay.add(test2);
 
-        System.out.println("working path: " + working.getPath());
-        System.out.println("test path: " + test.getPath());
-        System.out.println("verypay path: " + verypay.getPath());
-        System.out.println("test2 path: " + test2.getPath());
+//        System.out.println("working path: " + working.getLocation());
+//        System.out.println("test path: " + test.getLocation());
+//        System.out.println("verypay path: " + verypay.getLocation());
+//        System.out.println("test2 path: " + test2.getLocation());
+
+        working.listAll();
+
     }
 }

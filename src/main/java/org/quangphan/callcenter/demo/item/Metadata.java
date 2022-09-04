@@ -3,8 +3,7 @@ package org.quangphan.callcenter.demo.item;
 public class Metadata {
 
     private String name;
-    private ItemType type = ItemType.FOLDER;
-    private String location = "root";
+    private ItemType type;
 
     public Metadata() {
     }
@@ -32,13 +31,5 @@ public class Metadata {
 
     public void setType(ItemType type) {
         this.type = type;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
     }
 }

@@ -10,33 +10,32 @@ public abstract class Item {
     private List<Item> children;
     private Item parent;
 
-    public Item(String name) {
+    public Item(String name, ItemType type) {
         metadata.setName(name);
+        metadata.setType(type);
 
-        if (metadata.getType() != ItemType.FOLDER) {
+        if (type != ItemType.FOLDER) {
             children = Collections.EMPTY_LIST;
         } else {
             children = new ArrayList<>();
         }
     }
 
-    public List<Item> getChildren() {
+    protected List<Item> getChildren() {
         return this.children;
     }
 
-    public void setParent(Item parent) {
+    private ItemType getType() {
+        return this.metadata.getType();
+    }
+
+    protected void setParent(Item parent) {
         this.parent = parent;
     }
 
-    public abstract void add(Item item);
-
-    public Metadata getMetadata() {
-        return this.metadata;
-    }
-
-    public String getPath() {
+    public String getLocation() {
         if (parent != null) {
-            return parent.getPath() + "/" + getName();
+            return parent.getLocation() + "/" + getName();
         }
         return "/" + getName();
     }
@@ -48,7 +47,7 @@ public abstract class Item {
         return metadata.getName();
     }
 
-    public boolean isFile() {
+    protected boolean isFile() {
         return metadata.getType() != ItemType.FOLDER;
     }
 
@@ -57,4 +56,23 @@ public abstract class Item {
             System.out.println(child.getName());
         }
     }
+
+    public void listAll() {
+        for (int i = 0; i < children.size(); i++) {
+            String prefix;
+            if (i == children.size() - 1) {
+                prefix = "\\- ";
+            } else {
+                prefix = "+- ";
+            }
+            if (isFile()) {
+                System.out.println(prefix + children.get(i).getName());
+            } else {
+                System.out.println(prefix + children.get(i).getName());
+                children.get(i).listAll();
+            }
+        }
+    }
+
+    public abstract void add(Item item);
 }
