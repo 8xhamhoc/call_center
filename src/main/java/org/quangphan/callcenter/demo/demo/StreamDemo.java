@@ -45,8 +45,6 @@ public class StreamDemo {
         FunctionalTestImpl functionalTest = new FunctionalTestImpl();
         functionalTest.test();
 
-        System.out.println("Hello");
-
     }
 
 }
