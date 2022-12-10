@@ -47,7 +47,7 @@ public class StreamDemo {
 
 
         System.out.println("What the f**k");
-
+        System.out.println("Finally");
     }
 
 }
